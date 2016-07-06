@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--自动扫描 -->
+    <context:component-scan base-package="com.carpe.system"/>
+    <!--引入资源文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!-- 定义druid连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="20"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+    </bean>
+
+    <!-- 定义Hibernate与连接工厂 -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+
+            </props>
+        </property>
+        <!-- 配置Hibernate扫描@Entity的位置 -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.carpe.system.entity</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 注册osiv拦截器，在请求期间保持session不被关闭以解决lazy加载导致no session错误 -->
+    <!--<bean id="openSessionInViewInterceptor"
+          class="org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>-->
+    <!-- 定义Hibernate事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="find*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="query*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="count*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 切入点指明了在执行数据处理的所有方法时产生事务拦截操作 -->
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.carpe.system.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    <!-- 引入其他配置文件，加载第三方资源-->
+   <!-- <import resource="spring-shiro-web.xml"/>-->
+</beans>
