@@ -22,19 +22,19 @@ public class LogAspect {
     /**
      * 添加业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.*.save*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.save*(..))")
     public  void  insertService(){}
 
     /**
      * 修改业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.*.update*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.update*(..))")
     public  void  updateService(){}
 
     /**
      * 删除业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.*.delete*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.delete*(..))")
     public  void  deleteService(){}
 
     /**
