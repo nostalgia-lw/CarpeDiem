@@ -12,8 +12,8 @@ import javax.annotation.Resource;
  * Created by wrj on 2016-07-06.
  */
 @Service
-public class UserServeceImpl implements UserService  {
-    private  static Logger logger =Logger.getLogger(UserServeceImpl.class);
+public class UserServiceImpl implements UserService  {
+    private  static Logger logger =Logger.getLogger(UserServiceImpl.class);
     @Resource
     private UserDao userDao;
     @Override

@@ -6,6 +6,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
@@ -15,6 +16,7 @@ import java.lang.reflect.Method;
  * 日志
  */
 @Aspect
+@Component
 public class LogAspect {
     @Resource
     private LogService logService;
@@ -22,19 +24,19 @@ public class LogAspect {
     /**
      * 添加业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.save*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.save*(..))")
     public  void  insertService(){}
 
     /**
      * 修改业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.update*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.update*(..))")
     public  void  updateService(){}
 
     /**
      * 删除业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.impl.UserServeceImpl.delete*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.delete*(..))")
     public  void  deleteService(){}
 
     /**

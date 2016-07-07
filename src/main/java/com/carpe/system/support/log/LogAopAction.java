@@ -6,6 +6,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import java.util.Map;
  * @since 2015-05-05 Pm 20:35
  * @version 1.0
  */
+@Aspect
 @Component
 public class LogAopAction {
 	// 本地异常日志记录对象
@@ -31,7 +33,7 @@ public class LogAopAction {
 	private LogDao logDao;
 
 	// Controller层切点
-	@Pointcut("@annotation(com.cddgg.system.support.log.SystemLog)")
+	@Pointcut("@annotation(com.carpe.system.support.log.SystemLog)")
 	public void controllerAspect() {
 	}
 
