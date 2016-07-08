@@ -1,0 +1,70 @@
+package com.carpe.system.support.util;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 文件操作类
+ * 
+ * @author
+ * 
+ * @author DongQihong
+ * 
+ */
+public class FileUtil {
+    /**
+     * 重写文件内容
+     * 
+     * @param file
+     *            要更新的文件
+     * @param data
+     *            要重新的内容
+     */
+    public static void rewrite(File file, String data) {
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter(file));
+            bw.write(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bw != null) {
+                try {
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * 读取文件内容行
+     * 
+     * @param file
+     *            要读取的文件
+     * @return 文件的内容行列表
+     */
+    public static List<String> readList(File file) {
+        BufferedReader br = null;
+        List<String> data = new ArrayList<String>();
+        try {
+            br = new BufferedReader(new FileReader(file));
+            for (String str = null; (str = br.readLine()) != null;) {
+                data.add(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return data;
+    }
+}
