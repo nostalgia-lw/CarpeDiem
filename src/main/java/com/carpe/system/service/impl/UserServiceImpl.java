@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
+ * 用户业务接口实现
  * Created by wrj on 2016-07-06.
  */
 @Service
@@ -18,11 +19,11 @@ public class UserServiceImpl implements UserService  {
     private UserDao userDao;
     @Override
     public void saveObject(User user)  {
-       userDao.saveObject(user);
+       userDao.save(user);
     }
 
     @Override
     public void updateObject(User user) {
-        userDao.updateObject(user);
+        userDao.update(user);
     }
 }

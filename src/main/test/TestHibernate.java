@@ -1,3 +1,4 @@
+import com.carpe.system.entity.User;
 import com.carpe.system.service.UserService;
 import com.carpe.system.support.log.SystemLog;
 import org.apache.log4j.Logger;
@@ -18,7 +19,8 @@ public class TestHibernate {
     }
 
     public  void testSave(){
-
+        User user =new User();
+        userService.saveObject(user);
 
     }
     @SystemLog(methods = "菜单管理-新增菜单")

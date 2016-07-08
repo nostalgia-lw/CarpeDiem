@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 /**
  * LogServiceImpl
- *日志业务实现
+ *日志业务接口实现
  * @author wrj
  * @date 2016-07-07
  */
@@ -20,6 +20,6 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public void saveLog(Log log) {
-        logDao.saveLog(log);
+        logDao.save(log);
     }
 }

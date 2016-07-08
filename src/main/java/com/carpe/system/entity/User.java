@@ -2,9 +2,7 @@ package com.carpe.system.entity;
 
 import com.carpe.system.support.entity.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * 用户
@@ -13,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="s_user")
 public class User extends BaseEntity {
+    private static final long serialVersionUID = 2274756067777579057L;
     /**
      * 登录帐号
      */
@@ -38,6 +37,12 @@ public class User extends BaseEntity {
      */
     @Column(name = "sex", length = 10)
     private String sex;
+    /**
+     * 用户所属部门
+     */
+    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY )
+    @JoinColumn(name = "organnization_id")
+    private Organization organization;
 
     public String getLoginName() {
         return loginName;
@@ -77,5 +82,13 @@ public class User extends BaseEntity {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 }
