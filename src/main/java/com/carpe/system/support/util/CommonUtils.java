@@ -1,6 +1,6 @@
 package com.carpe.system.support.util;
 
-import com.cddgg.system.entity.User;
+import com.carpe.system.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.web.context.request.RequestContextHolder;

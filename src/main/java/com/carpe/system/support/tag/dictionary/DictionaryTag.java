@@ -1,12 +1,12 @@
 package com.carpe.system.support.tag.dictionary;
 
-import com.cddgg.system.util.EhcacheUtils;
+
+import com.carpe.system.support.util.EhcacheUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.List;
-
 public class DictionaryTag extends TagSupport {
 
 	/**

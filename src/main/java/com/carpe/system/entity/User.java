@@ -40,7 +40,7 @@ public class User extends BaseEntity {
     /**
      * 用户所属部门
      */
-    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.LAZY )
+    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "organnization_id")
     private Organization organization;
 

@@ -9,5 +9,8 @@ import com.carpe.system.entity.User;
 public interface UserService {
     void  saveObject(User user) throws NumberFormatException;
     void  updateObject(User user);
+    void  testSave();
+     void getObject();
+    public void deleteObject();
 
 }

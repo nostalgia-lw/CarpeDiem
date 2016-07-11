@@ -24,7 +24,7 @@ public class LogAspect {
     /**
      * 添加业务方法逻辑切入点
      */
-    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.save*(..))")
+    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.test*(..))")
     public  void  insertService(){}
 
     /**

@@ -1,8 +1,6 @@
-import com.carpe.system.entity.User;
+import com.carpe.system.service.OrganizationService;
 import com.carpe.system.service.UserService;
-import com.carpe.system.support.log.SystemLog;
 import org.apache.log4j.Logger;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -11,23 +9,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestHibernate {
       private  static Logger logger =Logger.getLogger(TestHibernate.class);
-      private ApplicationContext  context=null;
+      private ClassPathXmlApplicationContext  context=null;
       private UserService userService =null;
+      private OrganizationService organizationService =null;
     {
         context = new ClassPathXmlApplicationContext("spring-application-context.xml");
         userService =context.getBean(UserService.class);
+        organizationService =context.getBean(OrganizationService.class);
     }
 
     public  void testSave(){
-        User user =new User();
-        userService.saveObject(user);
-
+       organizationService.testSaveOrganization();
+        context.close();
     }
-    @SystemLog(methods = "菜单管理-新增菜单")
     public static void main(String[] args) {
         TestHibernate testHibernate = new TestHibernate();
         testHibernate.testSave();
-
 
     }
 

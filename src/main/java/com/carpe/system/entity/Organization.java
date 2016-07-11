@@ -51,7 +51,7 @@ public class Organization implements Serializable {
     /**
      * 对应的用户
      */
-    @OneToMany(cascade = CascadeType.REFRESH,mappedBy = "organization")
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "organization")
     private List<User> userList;
 
     public Long getId() {
@@ -108,5 +108,13 @@ public class Organization implements Serializable {
 
     public void setSort(Integer sort) {
         this.sort = sort;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

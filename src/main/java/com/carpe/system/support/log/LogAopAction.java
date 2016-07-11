@@ -53,7 +53,7 @@ public class LogAopAction {
 		Log log =new Log();
 		log.setMethods(map.get("methods") + "");
 		log.setDescription(map.get("description")+"");
-		logDao.saveLog(log);
+		logDao.save(log);
 
 	}
 
