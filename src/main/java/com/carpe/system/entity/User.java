@@ -1,8 +1,13 @@
 package com.carpe.system.entity;
 
 import com.carpe.system.support.entity.BaseEntity;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.List;
 
 /**
  * 用户
@@ -40,9 +45,17 @@ public class User extends BaseEntity {
     /**
      * 用户所属部门
      */
-    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @Cascade(value = CascadeType.SAVE_UPDATE)
     @JoinColumn(name = "organnization_id")
     private Organization organization;
+    /**
+     * 用户所属角色
+     */
+    @ManyToMany()
+    @Cascade(CascadeType.SAVE_UPDATE)
+    @JoinTable(name="s_user_role",joinColumns = {@JoinColumn(name="user_id")},inverseJoinColumns = {@JoinColumn(name="role_id")})
+    private List<Role> roleList;
 
     public String getLoginName() {
         return loginName;
@@ -90,5 +103,13 @@ public class User extends BaseEntity {
 
     public void setOrganization(Organization organization) {
         this.organization = organization;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 }

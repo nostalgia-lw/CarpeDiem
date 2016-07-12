@@ -38,17 +38,18 @@ public class OrganizationServiceImpl implements OrganizationService {
             user.setPinyin("yonghuxingming");
             user.setLoginName("32683683");
             user.setOrganization(organization);
-            //userDao.save(user);
+            //user.setSex(String.valueOf(100/0));
+            userDao.save(user);
             list.add(user);
         }
        organization.setUserList(list);
 
-
     }
     @Override
     public  void getOrganization(){
-        Organization organization =organizationDao.getById(51l);
+        Organization organization =organizationDao.getById(1l);
         System.out.println(organization.getUserList().size());
     }
+
 
 }

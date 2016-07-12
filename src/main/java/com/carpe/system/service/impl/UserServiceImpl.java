@@ -3,12 +3,15 @@ package com.carpe.system.service.impl;
 import com.carpe.system.dao.OrganizationDao;
 import com.carpe.system.dao.UserDao;
 import com.carpe.system.entity.Organization;
+import com.carpe.system.entity.Role;
 import com.carpe.system.entity.User;
 import com.carpe.system.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户业务接口实现
@@ -60,5 +63,27 @@ public class UserServiceImpl implements UserService  {
     public void deleteObject(){
         User user =userDao.getById(3l);
         userDao.delete(user);
+    }
+    @Override
+    public void saveManyToMany(){
+        Organization organization = new Organization();
+        organization.setName("组织机构测试3");
+        organization.setDescription("组织机构描述");
+        organization.setPid(0L);
+        //organizationDao.save(organization);
+        List<Role> roles = new ArrayList<>();
+        for (int i=0;i<4;i++){
+            Role role = new Role();
+            roles.add(role);
+        }
+        User user =new User();
+        user.setName("测试");
+        user.setSex("男");
+        user.setLoginName("3025585");
+        user.setPinyin("ceshi");
+        user.setOrganization(organization);
+        // user.setLoginPwd(String.valueOf(100/0));
+        user.setRoleList(roles);
+        userDao.save(user);
     }
 }

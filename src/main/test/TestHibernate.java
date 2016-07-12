@@ -1,4 +1,5 @@
 import com.carpe.system.service.OrganizationService;
+import com.carpe.system.service.RoleService;
 import com.carpe.system.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,14 +13,18 @@ public class TestHibernate {
       private ClassPathXmlApplicationContext  context=null;
       private UserService userService =null;
       private OrganizationService organizationService =null;
+      private RoleService roleService =null;
     {
         context = new ClassPathXmlApplicationContext("spring-application-context.xml");
         userService =context.getBean(UserService.class);
         organizationService =context.getBean(OrganizationService.class);
+        roleService =context.getBean(RoleService.class);
     }
 
     public  void testSave(){
-       organizationService.testSaveOrganization();
+      // organizationService.testSaveOrganization();
+      //  userService.saveManyToMany();
+        roleService.saveManyToMany();
         context.close();
     }
     public static void main(String[] args) {

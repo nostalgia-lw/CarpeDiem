@@ -51,7 +51,7 @@ public class Organization implements Serializable {
     /**
      * 对应的用户
      */
-    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "organization")
+    @OneToMany(mappedBy = "organization")
     private List<User> userList;
 
     public Long getId() {

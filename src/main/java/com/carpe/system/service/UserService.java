@@ -12,5 +12,5 @@ public interface UserService {
     void  testSave();
      void getObject();
     public void deleteObject();
-
+    void  saveManyToMany();
 }

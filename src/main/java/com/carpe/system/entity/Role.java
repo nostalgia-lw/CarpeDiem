@@ -1,10 +1,13 @@
 package com.carpe.system.entity;
 
 import com.carpe.system.support.entity.BaseEntity;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.List;
 
 /**
  * Created by wrj on 2016-07-08
@@ -30,6 +33,13 @@ public class Role extends BaseEntity {
      */
     @Column(name = "description", length = 200)
     private String description;
+    /***
+     * 角色所属用户
+     */
+    @ManyToMany()
+    @Cascade(value = CascadeType.SAVE_UPDATE)
+    @JoinTable(name = "s_user_role",joinColumns = { @JoinColumn(name="role_id")},inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private List<User> userList;
 
     public String getName() {
         return name;
@@ -53,5 +63,13 @@ public class Role extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

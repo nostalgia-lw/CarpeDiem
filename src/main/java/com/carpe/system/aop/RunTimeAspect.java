@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class RunTimeAspect {
     private Logger log =Logger.getLogger(RunTimeAspect.class);
 
-    @Pointcut("execution(* com.carpe.system.service.impl.UserServiceImpl.test*(..))")
+    @Pointcut("execution(* com.carpe.system.service.*.*(..))")
     public void  businessPoint(){}
 
     /**
