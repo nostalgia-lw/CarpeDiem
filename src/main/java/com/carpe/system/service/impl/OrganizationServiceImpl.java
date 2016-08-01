@@ -30,7 +30,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         organization.setName("组织机构测试");
         organization.setDescription("组织机构描述");
         organization.setPid(0l);
-        organizationDao.save(organization);
+        //organizationDao.save(organization);
         List<User> list =new ArrayList<>();
         for(int i=0;i<3;i++){
             User user =new User();

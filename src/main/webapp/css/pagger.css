@@ -1,0 +1,37 @@
+.pagger {
+	padding: 2px;
+	margin: 7px;
+	font-family: "lucida sans unicode", "lucida grande", lucidagrande,
+		"lucida sans", geneva, verdana, sans-serif;
+	text-align: right;
+}
+
+.pagger a,.pagger span.current {
+	padding: 0.3em 0.8em 0.3em 0.8em;
+	margin: 0;
+}
+
+.pagger a {
+	color: #666;
+	background-color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	border:1px #ccc solid;
+}
+
+.pagger a:hover {
+	color: #fff;
+	background-color: #EA624C;
+	border-radius: 4px;
+}
+
+.pagger span.current {
+	color: #ccc;
+	background-color: #EA624C;
+	border-radius: 4px;
+	border:0;
+}
+
+.pagger span.disabled {
+	display: none;
+}

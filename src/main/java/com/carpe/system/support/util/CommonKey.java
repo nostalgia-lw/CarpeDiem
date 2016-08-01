@@ -27,5 +27,8 @@ public class CommonKey {
 	public static final String CACHE_ORG_USER_JSON = "CACHE_ORG_USER_JSON";
 	//部门缓存
 	public static final String CACHE_ORG_JSON = "CACHE_ORG_JSON";
-
+   //用户状态_禁用
+	public  static  final  Byte USER_DISABLED_BYTE =0;
+	//用户默认状态_启动
+	public  static  final  Byte USER_NO_DISABLED_BYTE =1;
 }

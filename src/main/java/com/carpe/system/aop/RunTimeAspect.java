@@ -23,10 +23,11 @@ public class RunTimeAspect {
      * 记录运行时间
      */
     @Around(value ="businessPoint()")
-    public void  recordAroundRunTime(ProceedingJoinPoint pjp){
+    public Object recordAroundRunTime(ProceedingJoinPoint pjp){
         long start = System.currentTimeMillis();
+        Object data = null;
         try {
-            pjp.proceed();
+             data =  pjp.proceed();
             long end = System.currentTimeMillis();
             if(log.isInfoEnabled()){
                 log.info("[LOG-INFO] around " + pjp.toString() + "\tUse time : " + (end - start) + " ms!");
@@ -37,6 +38,7 @@ public class RunTimeAspect {
                 log.info("[LOG-INFO] around " + pjp.toString() + "\tUse time : " + (end - start) + " ms with exception : " + e.getMessage());
             }
         }
+        return data;
     }
 
 }

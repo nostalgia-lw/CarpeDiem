@@ -1,0 +1,197 @@
+@charset 'utf-8';
+ol, ul ,li{list-style: none; display: block;}
+.warehouse a {
+    color: #666;
+    display: inline-block;
+    vertical-align: middle;
+}
+.warehouse a span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.all-house {
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.ware-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+.ware-all {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background: url("../images/icon/ware_all.png") center;
+}
+
+.ware-opera {
+    vertical-align: middle;
+    margin-left: 20px;
+    display: none;
+}
+.all-house:hover .ware-opera {
+    display: inline-block;
+}
+.ware-opera>a {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 3px;
+    width: 20px;
+    height: 20px;
+}
+.ware-opera>a:hover {
+    background-size: 100%;
+}
+.ware-add {
+    background-image: url("../images/icon/ware_add.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ware-del {
+    background: url("../images/icon/ware_del.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.ware-upd {
+    background: url("../images/icon/ware_upd.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.ware-ul ul {
+/*    padding-left: 20px;     */
+}
+.ware-ul ul li{
+    padding: 5px 0;
+}
+.one-ware {
+    cursor: pointer;
+}
+.one-ware>a {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px #B0B2B3 solid;
+    border-radius: 8px;
+    color: #323232;
+}
+.one-ware>a>span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.one-ware:hover>.ware-opera {
+    display: inline-block;
+}
+.one-step {
+    background: url("../images/icon/one_step.png") center no-repeat;
+}
+.two-step {
+    background: url("../images/icon/two_step.png") center no-repeat;
+}
+.three-step {
+    background: url("../images/icon/three_step.png") center no-repeat;
+}
+.ware-ul {
+    float: left;
+}
+.ware-ul ul {
+    display: none;
+    background: url("../images/icon/shu_bg.jpg") 8px 0 repeat-y;
+}
+.ware-ul ul li {
+    padding-left: 28px;
+    background: url("../images/icon/shu_bg1.jpg") 8px 20px no-repeat;
+}
+.ware-ul>li {
+    margin-bottom: 15px;
+}
+.one-ware>a>em {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0px;
+    height: 0px;
+    background: url("../images/icon/xia.png") center no-repeat;
+    background-size: 100%;
+    margin-left: 10px;
+}
+.ware-input {
+    color: #555;
+    border: 1px #dadada solid;
+    border-radius: 2px;
+    padding: 3px 5px;
+    width: 278px;
+}
+.ware-close {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background: url("../images/icon/icon.png") -327px -144px;
+    margin: 3px -16px;
+}
+.pop-textarea {
+    resize: none;
+    border: 1px #dadada solid;
+    border-radius: 2px;
+    height: 50px;
+    padding: 5px;
+    width: 670px;
+}
+.archives-pop-document {
+    padding: 10px;
+}
+.archives-pop-document li {
+    float: left;
+    width: 33%;
+}
+
+.archives-pop1-document {
+    padding: 10px;
+}
+.archives-pop1-document li {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.archives-pop1-document li i {
+    font-style: normal;
+    color: red;
+}
+.archives-pop1-document li label {
+    display: block;
+    float: left;
+    width:95px;
+    text-align: right;
+    line-height: 25px;
+}
+.archives-pop1-document li span {
+    line-height: 25px;
+    margin-left: 5px;
+}
+.archives-pop1-document li input,.archives-pop1-document li textarea {
+    float: left;
+}
+.archives-table {
+    padding: 20px 0 0 0;
+}
+.td-content {
+    width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.td-overflows-p {
+    max-width: 600px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.width100>textarea {
+    vertical-align: top;
+}

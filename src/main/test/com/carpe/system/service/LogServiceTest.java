@@ -11,7 +11,7 @@ public class LogServiceTest {
     private ApplicationContext context=null;
     private LogService logService =null;
     {
-        context = new ClassPathXmlApplicationContext("spring-application-context.xml");
+        context = new ClassPathXmlApplicationContext("spring-hibernate.xml");
         logService =context.getBean(LogService.class);
     }
     @Test

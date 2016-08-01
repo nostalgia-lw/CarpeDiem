@@ -86,4 +86,11 @@ public class UserServiceImpl implements UserService  {
         user.setRoleList(roles);
         userDao.save(user);
     }
+
+    @Override
+    public User getUserByLoginName(String name) {
+        String hql ="from User where loginName=?";
+        User user = userDao.get(hql,name);
+        return user;
+    }
 }

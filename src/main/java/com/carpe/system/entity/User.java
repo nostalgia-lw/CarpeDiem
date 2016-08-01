@@ -1,6 +1,7 @@
 package com.carpe.system.entity;
 
 import com.carpe.system.support.entity.BaseEntity;
+import com.carpe.system.support.util.CommonKey;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -42,6 +43,11 @@ public class User extends BaseEntity {
      */
     @Column(name = "sex", length = 10)
     private String sex;
+    /**
+     * 状态
+     */
+    @Column(name="status")
+    private Byte status= CommonKey.USER_NO_DISABLED_BYTE;
     /**
      * 用户所属部门
      */
@@ -95,6 +101,14 @@ public class User extends BaseEntity {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     public Organization getOrganization() {

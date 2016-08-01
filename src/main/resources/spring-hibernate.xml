@@ -79,7 +79,7 @@
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
     <!-- 引入其他配置文件，加载第三方资源-->
-   <!-- <import resource="spring-shiro-web.xml"/>-->
+    <import resource="spring-shiro.xml"/>
     <!-- 加入Aspectj配置 -->
     <aop:aspectj-autoproxy />
 </beans>

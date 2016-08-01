@@ -1,0 +1,103 @@
+/*Author:xtt*/
+@charset "utf-8";
+.nav li:hover {
+    background: #37ACCB;
+}
+
+.nav ul ul {
+    background: #37ACCB;
+}
+
+.background:hover > a {
+    color: #37ACCB;
+}
+
+.exit-icon:hover {
+    color: #37ACCB;
+}
+
+.message-icon.active {
+    color: #37ACCB;
+}
+
+.message-icon:hover {
+    color: #37ACCB;
+}
+
+.ok-btn {
+    background: #37ACCB;
+}
+
+
+/********表格************/
+.tab tfoot tr td div {
+    background: #37ACCB;
+}
+
+.tab tbody tr .state p {
+    background: #37ACCB;
+}
+
+.infoClick {
+    background: #37ACCB;
+    color: #fff !important;
+}
+
+/**搜索框**/
+.div-icon-search{
+    border: 2px solid #319e83;
+}
+.div-icon-search i{
+    background: #319e83;
+}
+
+a {
+	cursor: pointer;
+}
+/*table样式*/
+.th-title {
+	background: #37ACCB;color: #FFFFFF;font-weight: bold;
+}
+
+.label {
+	border-radius:0;
+}
+td>.label {
+	    display: inherit;
+}
+.btn-primary {
+	background-color: #37ACCB;
+	border-color:#169886;
+}
+.btn-primary:hover {
+	background-color:#279081;
+	border-color:#137366;
+}
+#sub_search{
+	padding: 4px 10px; 	
+}    
+.chosen-container.chosen-container-single .chosen-results li.highlighted {
+	background:#37ACCB;
+}
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+	background-color:#279081;
+	border-color:#137366;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+	background-color:#279081;
+	border-color:#137366;
+}
+
+/*弹出框按钮颜色*/
+td.ui-dialog-footer button.ui-dialog-autofocus:hover, td.ui-dialog-footer button.ui-dialog-autofocus:focus, td.ui-dialog-footer button.ui-dialog-autofocus:active {
+	background-color:#279081;
+	border-color:#137366;
+}
+td.ui-dialog-footer button.ui-dialog-autofocus {
+	background-color: #37ACCB;
+	border-color:#169886;
+}
+/*标注颜色*/
+.marker {
+	color: #37ACCB;
+}

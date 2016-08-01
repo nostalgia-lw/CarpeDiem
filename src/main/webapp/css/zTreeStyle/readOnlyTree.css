@@ -1,0 +1,42 @@
+.ztree li span.button.addNode {
+	margin-left: 2px;
+	margin-right: -1px;
+	background-position: -144px 0;
+	background: url(./img/addMenu.png) 0px 2px
+		no-repeat;
+	vertical-align: top;
+	*vertical-align: middle
+}
+
+.ztree li span.button.info {
+	margin-left: 2px;
+	margin-right: -1px;
+	background: url(./img/info.png) 0px 1px no-repeat;
+	*vertical-align: middle
+}
+
+.ztree li span.button.switch.level0 {
+	visibility: hidden;
+	width: 1px;
+}
+
+.ztree li ul.level0 {
+	padding: 0;
+	background: none;
+}
+
+.ztree li span.button.pIcon01_ico_open {
+	margin-right: 2px;
+	background: url(./img/diy/1_open.png)
+		no-repeat scroll 0 0 transparent;
+	vertical-align: top;
+	*vertical-align: middle
+}
+
+.ztree li span.button.pIcon01_ico_close {
+	margin-right: 2px;
+	background: url(./img/diy/1_close.png)
+		no-repeat scroll 0 0 transparent;
+	vertical-align: top;
+	*vertical-align: middle
+}

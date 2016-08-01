@@ -1,0 +1,157 @@
+/*
+样式
+*/
+@charset "utf-8";*{margin:0;padding:0;font-family:Microsoft YaHei}
+body,html{width:100%;font-family:Microsoft YaHei;font-size:12px;}
+.clear{clear:both;}
+.clearfix:after{clear:both;display:block;height:0;content:'.';visibility:hidden;}
+.l{float: left;}
+.r{float: right;}
+
+.container-fluid{margin-top: 10px;}
+.container-panel{padding:10px; margin-bottom: 10px; border: 1px #fafafa solid;}
+.page-header{padding: 5px;margin: 0px 0 10px;background: #fafafa;}
+.page-header .crumbs{color:#319e83;font-size: 12px;line-height: 22px;}
+.tool-view{margin-bottom: 10px;}
+.advanced-search{display:none;padding:10px;margin-top:10px; margin-bottom: 10px; background-color: #F2F2F2;border: 1px #DDDDDD solid;}
+.advanced-search .form-group{margin: 5px 0px;}
+.advanced-search .form-group span{display:inline-block;width: 80px;text-align: right;}
+/*form表单样式*/
+.form-table{margin: 0 auto;}
+.form-table .tdleft{text-align:right;vertical-align: middle;border-top: 0px;}
+.form-table .tdright{vertical-align: middle;border-top: 0px;}
+/* .form-table input,.form-table select{max-width: 200px;}*/
+.form-btns{margin-top: 10px;}
+
+/*输入匹配查询样式*/
+.sea{position: relative;width: 200px;display: inline-block;; vertical-align: middle;}
+.sea-ul{position: absolute;width: 100%;border: 1px #dadada solid;border-top: 0;border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;display: none;background: #fff;max-height: 300px;overflow: auto;}
+.widt200{width: 200px;}
+.sea-ul li{display: block;line-height: 25px;padding: 5px;cursor: pointer;}
+.sea-ul li a{display: block;}
+.sea-ul li:hover{background: #EE4830;color: #fff;}
+.sea-ul li:hover a{color: #fff;}
+.sea-ul li.active{background: #EE4830;}
+.sea-ul li.active a{color: #fff;}
+.flexselect_dropdown{display: none;position: absolute;z-index: 999999;margin: 0;padding: 0;border: 1px solid WindowFrame;max-height: 200px;overflow-x: hidden;overflow-y: auto;background-color: Window;color: WindowText;text-align: left;box-shadow: 0 6px 12px #ccc;-webkit-box-shadow: 0 6px 12px #ccc;background: #fff;}
+.flexselect_dropdown ul{width: 100%;list-style-position: outside;list-style: none;padding: 0;margin: 0;}
+.flexselect_dropdown li{margin: 0px;padding: 2px 5px;cursor: pointer;display: block;width: 100%;font: Menu;overflow: hidden;line-height: 25px;}
+.flexselect_selected{background-color: #EE4830;color: #fff;}
+/*输入匹配查询样式 end*/
+
+
+/**/
+.trackItem{margin-top: 10px;}
+.trackItem h2,.trackItem h5{margin:0px;}
+
+
+
+/*用户弹出框样式*/
+.user-info{width: 400px;}
+.user-info .info .img{text-align: center;width: 100px; float: left;}
+.user-info .info .img img{width: 100px;height: 100px;border: 2px solid #fff;border-radius: 50%;}
+.user-info .info .r-text{float: left;width: 300px; padding-left: 15px;}
+.user-info .info .username{font-size: 18px;margin-top: 5px;}
+.user-info .info .txt{color:#777777;}
+.user-info .info .txt .icon{display: inline-block;width: 14px;text-align: center;}
+.user-info .info .txt .badge{margin-right: 5px;}
+.user-info .description{margin-top: 10px;color:#777777;}
+
+.show-user-info{color: #1CAF9A;}
+/*用户设置*/
+.user-set{width: 500px;text-align: center;}
+.user-set .left{width: 200px;}
+.user-set .right{width: 200px;}
+/*上传头像*/
+.litpic_show, .file_show{margin:5px 5px 5px 0px; }
+.litpic_btn {margin-top: 10px;width: 150px;position: relative;}
+.litpic_btn input, .file_btn input, .btn_up input{position: absolute;top: 0; right: 0; margin: 0;border: solid transparent;opacity: 0;filter:alpha(opacity=0);
+cursor: pointer;height: 100%;width: 150px;}
+.litpic_tip, .picture_tip, .file_tip{color: #F40;}
+
+/*消息页面发送消息按钮*/
+.btn-compose-email { padding: 10px 0;margin-bottom: 20px;}
+
+
+/*备注框*/
+.remark-box{min-width: 400px;}
+.remark-box .width-sm{width: 150px;}
+/*联系人二维码*/
+.qrcode{position: absolute;display: none;}
+
+
+.remark-list{width:200px;display: inline-block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+/* 加载中样式 */
+.spinner {margin: 100px auto 0;width: 150px;text-align: center;position: fixed;left: 50%;top: 50%;margin-top: -17px;margin-left: -75px;z-index: 10;}
+.full {position: fixed;left: 0;top: 0;bottom: 0;right: 0;background: rgba(255,255,255,.4);z-index: 9;}
+.spinner > div {width: 30px;height: 30px;background-color: #4BC1DF;border-radius: 100%;display: inline-block;-webkit-animation: bouncedelay 1.4s infinite ease-in-out;animation: bouncedelay 1.4s infinite ease-in-out;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+.spinner .bounce1 {-webkit-animation-delay: -0.64s;animation-delay: -0.64s;}
+.spinner .bounce2 {-webkit-animation-delay: -0.32s;animation-delay: -0.32s;}
+.spinner .bounce3 {-webkit-animation-delay: -0.16s;animation-delay: -0.16s;}
+@-webkit-keyframes bouncedelay {0%, 80%, 100% { -webkit-transform: scale(0.0) }40% { -webkit-transform: scale(1.0) }}
+@keyframes bouncedelay {0%, 80%, 100% {transform: scale(0.0);-webkit-transform: scale(0.0);} 40% {transform: scale(1.0);-webkit-transform: scale(1.0);}}
+
+
+#J_trade_order_detail .flowstep {
+    margin: 12px auto 10px;
+    padding: 0;
+}
+.flowstep {
+    width: 990px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.flowstep ol {
+    overflow: hidden;
+    zoom: 1;
+}
+.flowstep-5 {
+    margin-left: -30px;
+    width: 1050px;
+}
+.flowstep-5 li {
+    width: 210px;
+}
+.flowstep li {
+    float: left;
+    text-align: center;
+}
+.flowstep .step-name {
+    padding: 3px 0;
+    font-weight: 700;
+    color: #888;
+}
+.flowstep .step-first .step-done .step-no {
+    background-position: 50% -204px;
+}
+.flowstep .step-done .step-no {
+    background-position: 50% -170px;
+}
+.flowstep .step-no {
+    height: 34px;
+    line-height: 34px;
+    font-family: 'arial black';
+    color: #fff;
+    font-size: 18px;
+}
+.flowstep .step-no, .flowstep .step-sub-box .step-sub {
+    background: url(../images/T1ze0ZXA0aXXcVlxZa-734-340.png) no-repeat 50% -102px;
+}
+#J_trade_order_detail .flowstep .step-time {
+    color: #999;
+    margin-top: 10px;
+}
+.flowstep .step-time {
+    color: #999;
+    padding: 8px 0;
+}
+.flowstep .step-last .step-no{background-position:50% -136px}
+.flowstep .step-last .step-done .step-no{background-position:50% -68px}
+
+.bitian{color:#337ab7;}
+.table.table-bordered .td-border{border: 1px solid #ddd;border-left: 1px solid rgba(255, 255, 255, 0);border-right: 1px solid rgba(255, 255, 255, 0);border-bottom: 1px solid #337AB7;}
+.table.table-bordered tr>th{text-align: center;background: #ECECEC;}
+.table.table-bordered>tbody>tr>th>span{margin-left: 20px;}
+.status-red{color: red;}
+.status-green{color: green;}
+.status-other{color: blue;}

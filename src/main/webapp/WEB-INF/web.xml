@@ -1,7 +1,102 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <!--spring context -->
+  <!--
+  容器（tomcat）读取web.xml文件的两个节点<listenner><context>,初始化，创建一个ServelerContext,整个项目共享，接着在项目启动之前可以做一些操作如启动数据库连接。
+  同理容器创建<listener>中的类实例,即创建监听（备注：listener定义的类可以是自定义的类但必须需要继承ServletContextListener）
+  -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring-hibernate.xml</param-value>
+  </context-param>
+
+  <!--utf filter  -->
+  <!--
+           Servlet API中提供了一个Filter接口，开发web应用时，如果编写的Java类实现了这个接口，则把这个java类称之为过滤器Filter
+              1、可以在filter中根据条件决定是否调用chain.doFilter(request, response)方法，即是否让目标资源执行
+              2、在让目标资源执行之前，可以对request\response作预处理，再让目标资源执行
+              3、在目标资源执行之后，可以捕获目标资源的执行结果，从而实现一些特殊的功能
+  -->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+<!--打开hiberante当前线程的session-->
+  <filter>
+    <filter-name>SpringOpenSessionInViewFilter</filter-name>
+    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SpringOpenSessionInViewFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--SpringMVC servlet -->
+  <servlet>
+    <servlet-name>spring-mvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-mvc-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>spring-mvc</servlet-name>
+    <url-pattern>*.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>spring-mvc</servlet-name>
+    <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
+  <!--spring 监听器-->
+  <!-- 监听器也叫Listener，是Servlet的监听器，它可以监听客户端的请求、服务端的操作等。通过监听器，可以自动激发一些操作，
+       比如监听在线的用户的数量，当增加一个HttpSession时，就激发 sessionCreated(HttpSessionEvent se)方法，这样就可以给在线人数加1。
+       listener定义的类可以是自定义的类但必须需要继承ServletContextListener。
+   -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!--配置shiro-->
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>
+      org.springframework.web.filter.DelegatingFilterProxy
+    </filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/login.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/login.jsp</location>
+  </error-page>
+  <welcome-file-list>
+    <welcome-file>login.shtml</welcome-file>
+  </welcome-file-list>
+
 </web-app>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		">
+    <!--securityManager是shiro的核心，初始化时协调各个模块运行-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+       <!-- <property name="cacheManager" ref="shiroCacheManager"/>-->
+    </bean>
+      <!--realm配置，realm是shiro的桥梁，它主要是用来判断subject是否可以登录及权限等-->
+     <bean id="userRealm" class="com.carpe.system.support.shiro.UserRealm"/>
+
+      <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+          <property name="securityManager" ref="securityManager"></property>
+          <property name="loginUrl" value="/login.shtml"></property>
+          <property name="successUrl" value="/main.shtml"></property>
+          <property name="unauthorizedUrl" value="/login/unauthorized" />
+          <property name="filterChainDefinitions">
+              <value>
+                  /login.shtml = anon
+                  /mainno.shtml = anon
+                  /logout.shtml = logout
+                  <!--资源路径-->
+                  /error/** = anon
+                  /css/** = anon
+                  /js/** = anon
+                  /images/** = anon
+                  /bootstrap/** = anon
+                  /My97DatePicker/** = anon
+                  /artDialog/** = anon
+                  /dateRange/** = anon
+                  /highcharts/** = anon
+                  /upload/** = anon
+              </value>
+          </property>
+      </bean>
+    <!-- 用户授权/认证信息Cache, 采用EhCache 缓存 -->
+    <!--<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>
+    </bean>-->
+</beans>

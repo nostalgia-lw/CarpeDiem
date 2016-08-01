@@ -1,6 +1,8 @@
+import com.carpe.system.entity.User;
 import com.carpe.system.service.OrganizationService;
 import com.carpe.system.service.RoleService;
 import com.carpe.system.service.UserService;
+import com.carpe.system.support.util.Md5Util;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,16 +17,19 @@ public class TestHibernate {
       private OrganizationService organizationService =null;
       private RoleService roleService =null;
     {
-        context = new ClassPathXmlApplicationContext("spring-application-context.xml");
+        context = new ClassPathXmlApplicationContext("spring-hibernate.xml");
         userService =context.getBean(UserService.class);
         organizationService =context.getBean(OrganizationService.class);
         roleService =context.getBean(RoleService.class);
     }
 
     public  void testSave(){
-      // organizationService.testSaveOrganization();
-      //  userService.saveManyToMany();
-        roleService.saveManyToMany();
+      organizationService.testSaveOrganization();
+        User user = new User();
+        user.setLoginName("admin");
+        user.setLoginPwd(Md5Util.encrypt("admin"));
+        user.setName("超级管理员");
+        userService.saveObject(user);
         context.close();
     }
     public static void main(String[] args) {

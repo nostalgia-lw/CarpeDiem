@@ -13,4 +13,5 @@ public interface UserService {
      void getObject();
     public void deleteObject();
     void  saveManyToMany();
+    User getUserByLoginName(String name);
 }

@@ -1,0 +1,321 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	width: 100%;
+	height: 100%;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	font-size: 12px;
+	line-height: 0px;
+	font-family: "宋体";
+	background:#e5edef;
+	
+
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td
+	{
+	margin: 0px;
+	padding: 0px;
+}
+
+ul li {
+	list-style: none;
+}
+
+form {
+	border: none;
+}
+
+img {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+a {
+	text-decoration: none;
+	blr: expression(this.onFocus = this.blur () );
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.clear {
+	clear: both;
+	line-height: 0px;
+	font-size: 0px;
+	height: 0px;
+	overflow: hidden;
+}
+
+#top_bj {
+	background: #23b2e9;
+	margin-bottom: 5px;
+}
+
+#top_bj .top_logo {
+	margin: 0px auto;
+	line-height: 65px;
+	height: 65px;
+	background: url(../images/index/top_logo.png) 28px 8px no-repeat;
+}
+#top_bj .top_mitmm{
+	padding:0px;
+	margin:0px;
+	line-height:15px;
+	height:10px;
+	top:5px;
+	color:#fff;
+	right:10px;
+	position: absolute;
+
+	
+	
+}
+#top_bj .top_right {
+	float: right;
+	margin-right:15px;
+	height:50px;
+	position: relative;
+
+}
+
+#top_bj .top_right a {
+	color: #fff;
+	height: 25px;
+	line-height: 25px;
+	letter-spacing: 2px;
+}
+
+#top_bj .top_right span {
+	padding: 0px 8px 0px 8px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	color: #FFF;
+	margin-top:30px;
+	
+}
+
+#top_bj .top_right img {
+	display: block;
+	float: left;
+	padding: 5px 5px 0px 0px;
+}
+
+#Menu {
+	margin: 0px auto;
+	overflow:hidden;
+}
+
+#Menu .center_left {
+	width: 215px;
+	float: left;
+	border: 1px solid #c3d9e0;
+	margin-bottom: 10px;
+	margin-left:10px;
+	margin-right:5px;
+	height:580px;
+	background: #49b5de;
+	overflow-y:scroll; 
+	overflow-x:hidden;
+
+	
+}
+
+#Menu .center_left h2 {
+	height: 35px;
+	background: #38bdfa;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 35px;
+	text-align: center;
+	
+}
+
+#Menu .add_ztree li a.level0 {
+	width: 197px;
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+	display: block;
+	background: url(../images/index/left_add1.png) no-repeat;
+	text-decoration: none;
+	color: #fff;
+	cursor:pointer; 
+}  
+
+#Menu .add_ztree li a.curParent {
+	background: url(../images/index/left_add2.png) no-repeat;
+	color: #fff;
+	font-weight: bold;
+	height: 36px;
+}
+
+#Menu .add_ztree li a.curChild {
+	background:#b6dfee;
+	font-weight: bold;
+	height: 28px;
+	display:block;
+	line-height:28px;
+	
+	
+}
+
+#Menu .add_ztree li a.level0 span {
+	display: block;
+	font-size:14px;
+	height:36px;
+	line-height:36px;
+}
+
+#Menu .add_ztree li a.level0 span.button {
+	visibility: visible;
+	display: none;
+	line-height: 30px;
+}
+
+#Menu .add_ztree li span.button.switch.level0 {
+	display: none;
+	
+}
+
+.menuName {
+	
+}
+
+#Menu .right {
+	float:left;
+	margin-right:10px;
+	margin:0px 0px 0px 0px;
+	overflow: hidden;
+	
+}
+#Menu .tabs_b{
+ margin-right:18px;
+ margin-left:5px;
+ overflow: hidden;
+
+
+}
+
+#Menu div.header {
+	height: 33px;
+	line-height: 33px;
+	border-bottom: 1px solid #CCC;
+	font-size: 13px;
+	font-weight: bold;
+	color: #369bd7;
+	background: url(../images/index/header_add1.png) 2px bottom no-repeat;
+	text-indent: 25px;
+}
+
+#Menu div.hom {
+	background: url(../images/index/bj_jj.png) 1px 1px no-repeat;
+}
+
+#footer {
+	height: 25px;
+	line-height: 25px;
+	margin: 0px auto;
+	text-align: center;
+	clear: both;
+	color: #666;
+}
+
+.add_ztree li a:hover {text-decoration:none;}
+.add_ztree{
+	list-style:none;
+	
+}
+
+.nav {
+ font-size:13px;
+ display:block;
+ cursor: pointer;
+ height:36px;
+ line-height:36px;
+ text-align:left;
+ text-indent:40px;
+
+}
+.nav1 {
+ font-size:13px;
+ display:block;
+ cursor: pointer;
+ height:30px;
+ line-height:30px;
+ border-bottom:1px dashed #ccc;
+ color:#fff;
+ padding:0px 0px 0px 30px;
+ background: url(../images/index/ui-icons.png) 20px center no-repeat;
+}
+
+.nav2 {
+ font-size:13px;
+ display:block;
+ cursor: pointer;
+ height:30px;
+ line-height:30px;
+ border-bottom:1px dashed #ccc;
+ color:#fff;
+ padding:0px 0px 0px 40px;
+ background: url(../images/index/leftioc.png) 30px center no-repeat;
+}
+.nav3 {
+ font-size:13px;
+ display:block;
+ cursor: pointer;
+ height:30px;
+ line-height:30px;
+ border-bottom:1px dashed #ccc;
+ color:#fff;
+ padding:0px 0px 0px 50px;
+ background: url(../images/index/leftioc.png) 40px center no-repeat;
+}
+
+.tabs{
+/*	background: url(../images/index/header_add.png) repeat-x;*/
+background: #daeef5;
+	height:33px;
+
+}
+
+.tabs-header,
+.tabs-scroller-left,
+.tabs-scroller-right,
+.tabs-tool,
+.tabs,
+.tabs-panels,
+.tabs li a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner,
+.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+ 
+}
+.tabs-header,
+.tabs-tool {
+  background: #daeef5;
+
+}
+.tabs-panels {
+  margin: 0px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-top-width: 0;
+  overflow: hidden;
+}
+	
+
