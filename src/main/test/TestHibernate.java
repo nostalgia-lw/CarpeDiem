@@ -32,10 +32,18 @@ public class TestHibernate {
         userService.saveObject(user);
         context.close();
     }
-    public static void main(String[] args) {
-        TestHibernate testHibernate = new TestHibernate();
-        testHibernate.testSave();
+     public static void testChange( Integer a, Integer b){
+         Integer temp =a;
+         a=b;
+         b=temp;
+     }
 
+    public static void main(String[] args) {
+    Integer a =2;
+    Integer b =1;
+
+            testChange(a,b);
+        System.out.println(a);
     }
 
 

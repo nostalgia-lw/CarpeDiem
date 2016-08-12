@@ -7,7 +7,10 @@ import com.carpe.system.support.util.CommonKey;
 import com.carpe.system.support.util.CommonUtils;
 import com.carpe.system.support.util.Md5Util;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,17 +36,20 @@ public class LoginController {
      * @param request
      * @return
      */
-    @RequestMapping(value ="/login.shtml",method = RequestMethod.GET)
+    @RequestMapping(value ="/login.html",method = RequestMethod.GET)
     public String login(HttpServletRequest request){
-        User user = new User();
-        user.setLoginName("admin");
-        user.setLoginPwd(Md5Util.encrypt("admin"));
-        user.setName("超级管理员");
-        Organization organization = new Organization();
-        organization.setName("系统管理员");
-        organization.setPid(0L);
-        user.setOrganization(organization);
-        userService.saveObject(user);
+        User curuser =userService.getUserByLoginName("admin");
+        if(curuser==null){
+            User user = new User();
+            user.setLoginName("admin");
+            user.setLoginPwd(Md5Util.encrypt("admin"));
+            user.setName("超级管理员");
+            Organization organization = new Organization();
+            organization.setName("系统管理员");
+            organization.setPid(0L);
+            user.setOrganization(organization);
+            userService.saveObject(user);
+        }
          return  "login";
     }
 
@@ -56,7 +62,7 @@ public class LoginController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/login.shtml",method = RequestMethod.POST)
+    @RequestMapping(value = "/login.html",method = RequestMethod.POST)
     public String login(String loginName, String password, String validateCode, HttpServletRequest request, HttpSession session, Model model){
         if(StringUtils.isEmpty(loginName) || StringUtils.isEmpty(password)){
             return CommonUtils.msgCallback(false,"登录用户名和密码不能为空",null,null);
@@ -80,7 +86,8 @@ public class LoginController {
         User user =userService.getUserByLoginName(loginName);
         session.setAttribute(CommonKey.USER_SESSION,user);
         session.setAttribute(CommonKey.USER_SESSION_ID,user.getId());
-        return CommonUtils.msgCallback(true,"main.shtml",null,null);
+        return CommonUtils.msgCallback(true,"main.html",null,null);
     }
+
 
 }

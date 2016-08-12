@@ -15,14 +15,14 @@
 
       <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
           <property name="securityManager" ref="securityManager"></property>
-          <property name="loginUrl" value="/login.shtml"></property>
-          <property name="successUrl" value="/main.shtml"></property>
-          <property name="unauthorizedUrl" value="/login/unauthorized" />
+          <property name="loginUrl" value="/login.html"></property>
+          <property name="successUrl" value="/main.html"></property>
+          <property name="unauthorizedUrl" value="/login/unauthorized"></property>
           <property name="filterChainDefinitions">
               <value>
-                  /login.shtml = anon
-                  /mainno.shtml = anon
-                  /logout.shtml = logout
+                  /login.html = anon
+                  /logout.html = logout
+                  /main.html=anon
                   <!--资源路径-->
                   /error/** = anon
                   /css/** = anon

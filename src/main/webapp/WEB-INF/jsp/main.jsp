@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.png" type="image/png">
-<title>顶呱呱订单处理系统</title>
+<title>顶呱呱</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tabs.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/swiper.min.css">
@@ -113,7 +113,7 @@ a:hover, a:active, a:focus {outline: none;}
 	        <div class="nav demo one-box">
 	            <ul class="nav-parent one-ul swiper-wrapper">
 	                <li class="swiper-slide">
-	                    <a href="javascript:;" onclick="addTab('首页','${pageContext.servletContext.contextPath}/index.jsp')"><i class="icon-home"></i><span>首页</span></a>
+	                    <a href="javascript:;" onclick="addTab('首页','${pageContext.servletContext.contextPath}/index.html')"><i class="icon-home"></i><span>首页</span></a>
 	                </li>
 	            	<c:forEach var="key" items="${menu}">
 	                 <li class="swiper-slide">
@@ -245,7 +245,7 @@ $(window).resize(function(){
     /*添加首页Tab*/
 	function addIndexTab(){
 		var height=setSize();
-		var index=' <iframe scrolling="auto" frameborder="0"  src="index.shtml" style="width:100%;height:'+height+';"></iframe>';
+		var index=' <iframe scrolling="auto" frameborder="0"  src="index.html" style="width:100%;height:'+height+';"></iframe>';
         $('#content').tabs('add',{
             height:height,
             title:"首页",
@@ -257,6 +257,7 @@ $(window).resize(function(){
     function addTab(title, url,name){
         if ($('#content').tabs('exists', title)){
             $('#content').tabs('select', title);
+            updateTab(title, url)
             iframe_h();
         } else {
         	var height=setSize();
@@ -319,7 +320,7 @@ $(window).resize(function(){
     
     function logoutFun(){
     	msg.confirm("确认要退出吗?",function(){
-    		window.location.href="${pageContext.servletContext.contextPath}/logout.shtml";
+    		window.location.href="${pageContext.servletContext.contextPath}/logout.html";
     	},"退出提醒");
     }
     //关闭当前页面

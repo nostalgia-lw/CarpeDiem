@@ -53,7 +53,7 @@
                  type:"post",
                  datatype:"json",
                  data:{loginName:loginName,password:password},
-                 url:"login.shtml",
+                 url:"login.html",
                  success:function (data) {
                      if(data.status===false){
                          msg.info(data.info,1000);
@@ -75,7 +75,7 @@
                     type:"post",
                     datatype:"json",
                     data:{loginName:loginName,password:password},
-                    url:"login.shtml",
+                    url:"login.html",
                     success:function (data) {
                         if(data.status===false){
                             msg.info(data.info,1000);

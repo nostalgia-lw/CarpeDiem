@@ -53,11 +53,13 @@
                  type:"post",
                  datatype:"json",
                  data:{loginName:loginName,password:password},
-                 url:"login.shtml",
+                 url:"login.html",
                  success:function (data) {
+                    var data =JSON.parse(data);
                      if(data.status===false){
                          msg.info(data.info,1000);
-                     }else{
+                     }else if(data.status==true){
+                         //alert(data.info);
                          location.href=data.info;
                      }
                  }
@@ -75,11 +77,13 @@
                     type:"post",
                     datatype:"json",
                     data:{loginName:loginName,password:password},
-                    url:"login.shtml",
+                    url:"login.html",
                     success:function (data) {
+                        var data =JSON.parse(data);
                         if(data.status===false){
                             msg.info(data.info,1000);
-                        }else{
+                        }else if(data.status===true){
+                           // alert(data.info);
                             location.href=data.info;
                         }
                     }
