@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-<%@ taglib uri="http://cddgg.com/jstl/pager" prefix="p"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,7 @@
  	 	<div class="tool-view">
  	 		<div class="clearfix">
 	 	 		<div class="pull-left">
-					<a href="${pageContext.servletContext.contextPath}/resources/add.shtml?pid=${pid}">
+					<a href="add.html?pid=${pid}">
 						<span class="btn btn-success btn-sm">新增菜单</span>
 					</a>
 	 	 		</div>
@@ -64,7 +64,7 @@
 			                <th>KEY</th>
 			                <th>图标</th>
 			                <th>URL地址</th>
-			                <th>禁用</th>
+			                <th>状态</th>
 			                <th>排序</th>
 			                <th>操作</th>
 			              </tr>
@@ -78,19 +78,19 @@
 			                <td><i class="${k.icon}"> ${k.icon}</i></td>
 			                <td>${k.url}</td>
 			               <td>
-			                	<c:if test="${k.isHide==0}">
+			                	<c:if test="${k.isHide==1}">
 			                		<a href="javascript:void(0);" style="color: #1CAF9A;" class="ishide_btn" data-val="${k.isHide}" data-id="${k.id}" title="点击禁用">启用</a>
 			                	</c:if>
-			                	<c:if test="${k.isHide==1}">
+			                	<c:if test="${k.isHide==-1}">
 			                		<a href="javascript:void(0);" style="color: #d9534f;" class="ishide_btn" data-val="${k.isHide}" data-id="${k.id}" title="点击启用">禁用</a>
 			               		</c:if>
 		              		 </td>
 			                <td>
-			                	<input type="text" class="sort_input" data-id="${k.id}" value="${k.sort}">
+			                	<input type="text" class="sort_input" oninput="this.value=this.value.replace(/\D/g,'')"  data-id="${k.id}" value="${k.sort}" maxlength="3">
 			                </td>
 			                <td>
-									<a href="${pageContext.servletContext.contextPath}/resources/edit.shtml?id=${k.id}" class="btn btn-success btn-xs">编辑</a>
-									<a href="${pageContext.servletContext.contextPath}/resources/delete.shtml?id=${k.id}"data-info="确认删除吗?" class="confirm ajax-get btn btn-danger btn-xs">删除</a>
+									<a href="edit.html?id=${k.id}" class="btn btn-success btn-xs">编辑</a>
+									<a href="delete.html?id=${k.id}" data-info="确认删除吗?" class="confirm ajax-get btn btn-danger btn-xs">删除</a>
 							</td>
 			              </tr>
 						</c:forEach>
@@ -114,7 +114,7 @@
 			var value = $(this).val();
 			$.ajax({
 				type:"POST",
-				url:"${pageContext.servletContext.contextPath}/resources/change_sort.shtml",
+				url:"change_sort.shtml",
 				data:{
 					'id':id,
 					'sort':value
@@ -134,7 +134,7 @@
 			var value = thisObj.attr("data-val");
 			$.ajax({
 				type:"POST",
-				url:"${pageContext.servletContext.contextPath}/resources/change_hide.shtml",
+				url:"change_hide.html",
 				data:{
 					'id':id,
 					'isHide':value

@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="s_resource")
-public class Resource extends BaseEntity {
+public class Resources extends BaseEntity {
     private static final long serialVersionUID = -5613371163678556783L;
     /**
      * 名称
@@ -32,7 +32,7 @@ public class Resource extends BaseEntity {
      * 上级ID
      */
     @Column(name = "pid")
-    private Long pid;
+    private Long pid=0L;
 
     /**
      * 类型（目录，菜单，按钮/操作）
@@ -43,17 +43,22 @@ public class Resource extends BaseEntity {
      * 图标
      */
     @Column(name = "icon", length = 50)
-    private String icon;
+    private String icon="icon-folder-close-alt";
     /**
      * 是否隐藏
      */
     @Column(name = "is_hide")
-    private Integer isHide;
+    private Integer isHide=1;
     /**
      * 描述
      */
     @Column(name = "description", length = 255)
     private String description;
+    /***
+     * 排序
+     */
+    @Column(name="sort",length = 5)
+    private Integer sort=0;
 
     public String getName() {
         return name;
@@ -117,5 +122,13 @@ public class Resource extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 }

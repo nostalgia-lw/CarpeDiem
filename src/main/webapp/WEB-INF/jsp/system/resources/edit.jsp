@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
 <div class="main-top">
     <div class="opera-bar">
         <ul>
-            <li><a href="javascript:history.go(-1);"><i class="icon-reply color-green"></i><span>返回</span></a></li>
+            <li><a href="list.html;"><i class="icon-reply color-green"></i><span>返回</span></a></li>
             <li><a href="javascript:window.location.reload();"><i class="icon-refresh color-green"></i><span>刷新页面</span></a></li>
         </ul>
     </div>
@@ -76,8 +76,8 @@
 				    <label class="col-sm-4 control-label">状态:</label>
 				    <div class="col-sm-8">
 			            <select class="form-control input-sm input-sm" name="isHide">
-	   		 				<option value="0" <c:if test="${res.isHide==0}">selected</c:if>>启用</option>
-			            	<option value="1" <c:if test="${res.isHide==1}">selected</c:if>>禁用</option>
+	   		 				<option value="1" <c:if test="${res.isHide==1}">selected</c:if>>启用</option>
+			            	<option value="-1" <c:if test="${res.isHide==-1}">selected</c:if>>禁用</option>
 			              </select>
 				    </div>
 				  </div>
@@ -91,7 +91,10 @@
 				  <div class="form-group">
 				    <div class="col-sm-offset-4 col-sm-8">
 				      <input type="hidden" name="id" value="${res.id}" />
-				      <button type="button" class="btn btn-primary btn-sm" onclick="sub();">提交</button>
+                        <c:if test="${fn:contains(action,'add')}">
+							<button type="button" class="btn btn-primary btn-sm" onclick="sub(1);">保存并新增</button>
+						</c:if>
+						<button type="button" class="btn btn-primary btn-sm" onclick="sub(0);">保存</button>
 				    </div>
 				  </div>
 				</form>
@@ -99,7 +102,7 @@
 </div>
 </div>
 	<script type="text/javascript">
-	function sub(){
+	function sub(flag){
 		var checkName = checkEmpty($('[name="name"]'),'请填名称');
 		var checkKey = checkEmpty($('[name="key"]'),'请填写key');
 		var checkUrl = checkEmpty($('[name="url"]'),'请填写url');
@@ -110,10 +113,15 @@
 				url : $("#form").attr("action"),
 				dataType : 'json',
 				success:function(data) {
-					if(data.status==1){
-						msg.confirm(data.info,function(){
-							window.location.reload();
-				    	},"操作提示");
+					if(data.status){
+						msg.info(data.info);
+						setTimeout(function () {
+							if(flag===1){
+								location.href="add.html";
+							}else{
+								location.href="list.html";
+							}
+						},1000);
 					}else{
 						msg.info(data.info);
 					}

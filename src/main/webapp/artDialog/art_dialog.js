@@ -1,8 +1,8 @@
-document.write('<script type="text/javascript" src="artDialog/src/dialog-config.js"></script>');
-document.write('<script type="text/javascript" src="artDialog/src/popup.js"></script>');
-document.write('<script type="text/javascript" src="artDialog/src/dialog.js"></script>');
-document.write('<script type="text/javascript" src="artDialog/src/dialog-plus.js"></script>');
-document.write('<script type="text/javascript" src="artDialog/src/drag.js"></script>');
+document.write('<script type="text/javascript" src="'+pathName+'/artDialog/src/dialog-config.js"></script>');
+document.write('<script type="text/javascript" src="'+pathName+'/artDialog/src/popup.js"></script>');
+document.write('<script type="text/javascript" src="'+pathName+'/artDialog/src/dialog.js"></script>');
+document.write('<script type="text/javascript" src="'+pathName+'/artDialog/src/dialog-plus.js"></script>');
+document.write('<script type="text/javascript" src="'+pathName+'/artDialog/src/drag.js"></script>');
 
 /**
  * 公共提示信息接口

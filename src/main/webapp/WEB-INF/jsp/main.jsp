@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.png" type="image/png">
 <title>顶呱呱</title>
+    <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/tabs.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/swiper.min.css">

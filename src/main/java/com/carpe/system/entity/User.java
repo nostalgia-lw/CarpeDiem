@@ -17,7 +17,24 @@ import java.util.List;
 @Entity
 @Table(name="s_user")
 public class User extends BaseEntity {
+
+    /**
+     * 序列化
+     */
     private static final long serialVersionUID = 2274756067777579057L;
+    /**
+     * 0、正常
+     */
+    public static final int NORMAL = 0;
+    /**
+     * 1、锁定
+     */
+    public static final int LOCKED = 1;
+    /**
+     * 2、离职
+     */
+    public static final int TURNOVER = 2;
+
     /**
      * 登录帐号
      */

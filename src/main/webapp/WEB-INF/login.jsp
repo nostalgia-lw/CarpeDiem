@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <title>欢迎使用-请先登录</title>
     <link href="css/login.css" rel="stylesheet">
-
+    <jsp:include page="jsp/header.jsp" />
     <script type="text/javascript">
         if (top.location != self.location)top.location = self.location;
     </script>
@@ -37,10 +37,8 @@
     <p>Copyright &copy; 2016.Company CDDGG.COM All rights reserved. Created By: <a href="#" target="_blank"><顶呱呱集团-信息技术部></顶呱呱集团-信息技术部></a></p>
 </div>
 <input type="hidden" id="pathName" value="${pageContext.request.contextPath}">
-<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/artDialog/art_dialog.js"></script>
 <script type="text/javascript">
-    $(function () {
+    $(function ($) {
         var pathName =$("#pathName").val();
          $("input[type=submit]").click(function () {
              var loginName =$("input[name=loginName]").val();
@@ -51,15 +49,13 @@
              }
              $.ajax({
                  type:"post",
-                 datatype:"json",
+                 dataType:"json",
                  data:{loginName:loginName,password:password},
                  url:"login.html",
                  success:function (data) {
-                    var data =JSON.parse(data);
                      if(data.status===false){
                          msg.info(data.info,1000);
                      }else if(data.status==true){
-                         //alert(data.info);
                          location.href=data.info;
                      }
                  }
@@ -75,15 +71,13 @@
                 }
                 $.ajax({
                     type:"post",
-                    datatype:"json",
+                    dataType:"json",
                     data:{loginName:loginName,password:password},
                     url:"login.html",
                     success:function (data) {
-                        var data =JSON.parse(data);
                         if(data.status===false){
                             msg.info(data.info,1000);
                         }else if(data.status===true){
-                           // alert(data.info);
                             location.href=data.info;
                         }
                     }

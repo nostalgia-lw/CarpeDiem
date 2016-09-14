@@ -86,6 +86,7 @@ public class LoginController {
         User user =userService.getUserByLoginName(loginName);
         session.setAttribute(CommonKey.USER_SESSION,user);
         session.setAttribute(CommonKey.USER_SESSION_ID,user.getId());
+        session.setMaxInactiveInterval(30*60*60);
         return CommonUtils.msgCallback(true,"main.html",null,null);
     }
 
