@@ -8,7 +8,7 @@
 <head>
 <jsp:include page="../../header.jsp" />
 <style type="text/css">
-	.sort_input{width: 30px;height: 24px;border-radius: 2px;border: 1px solid #ccc;text-align: center;}
+	.sort_input{width: 30px;height: 24px;border-radius: 2px;border: 1px solid #ccc; text-align: center;}
 </style>
 </head>
 <body>
